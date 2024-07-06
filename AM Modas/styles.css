@@ -1,0 +1,288 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+}
+
+header {
+    background-color: #F361AE;
+    color: white;
+    padding: 1rem;
+    position: relative;  /* Añadido */
+}
+
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-right: 100px;  /* Añadido */
+}
+
+.logo {
+    height: 50px;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    margin-left: 1rem;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    transition: background-color 0.3s;
+}
+
+nav ul li a:hover, nav ul li a.active {
+    background-color: #944870;
+    border-radius: 5px;
+}
+
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul {
+        margin-top: 1rem;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li {
+        margin: 0.5rem 0;
+    }
+}
+
+.cart {
+    position: absolute;  /* Cambiado de fixed a absolute */
+    top: 6%;  /* Centrado verticalmente */
+    right: 20px;
+    transform: translateY(-50%);  /* Centrado verticalmente */
+    background-color: #F361AE;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    z-index: 1000;
+}
+@media (max-width: 768px) {
+    .header-container {
+        padding-right: 0;  /* Eliminamos el padding en móviles */
+    }
+
+    .cart {
+        position: fixed;  /* Volvemos a fixed en móviles */
+        top: auto;
+        bottom: 425px;
+        right: 5px;
+        transform: none;  /* Eliminamos la transformación en móviles */
+    }
+}
+.content {
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-bottom: 60px;
+}
+
+.product {
+    background-color: white;
+    border-radius: 5px;
+    padding: 20px;
+    margin: 10px;
+    width: calc(33.33% - 20px);
+    max-width: 300px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+}
+
+.product:hover {
+    transform: scale(1.05);
+}
+
+.product img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.product button {
+    background-color: #F361AE;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s, transform 0.1s;
+    margin-top: 10px;
+    width: 100%;
+}
+
+.product button:hover {
+    background-color: #d14b93;
+    transform: scale(1.05);
+}
+
+.product button:active {
+    transform: scale(0.95);
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1001;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 30px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 400px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: black;
+}
+
+.success-message {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #F361AE;
+    color: white;
+    padding: 20px;
+    border-radius: 5px;
+    animation: fadeIn 0.5s;
+    z-index: 1002;
+}
+
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+.modal-content h2 {
+    color: #F361AE;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+    font-weight: bold;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #F361AE;
+    box-shadow: 0 0 5px rgba(243, 97, 174, 0.5);
+}
+
+.payment-button {
+    background-color: #F361AE;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+    transition: background-color 0.3s;
+}
+
+.payment-button:hover {
+    background-color: #d14b93;
+}
+
+.card-icon {
+    font-size: 24px;
+    margin-right: 10px;
+}
+
+footer {
+    text-align: center;
+    padding: 5px;
+    background-color: #F361AE;
+    color: white;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+       align-items: center;
+    }
+    
+
+    nav ul {
+        margin-top: 1rem;
+        justify-content: center;
+    }
+
+    .product {
+        width: calc(50% - 20px);
+    }
+
+    .modal-content {
+        width: 90%;
+    }
+}
